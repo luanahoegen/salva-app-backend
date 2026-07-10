@@ -17,13 +17,16 @@ public class FirebaseConfig {
     @PostConstruct
     public void initialize() {
         try {
+            // Carrega o arquivo de chave da conta de serviço do Firebase. (serviceAccountKey.json)
             Resource resource = new ClassPathResource("serviceAccountKey.json");
             InputStream serviceAccount = resource.getInputStream();
 
+            // Define as credenciais do arquivo serviceAccountKey.json.
             FirebaseOptions options = FirebaseOptions.builder()
                     .setCredentials(GoogleCredentials.fromStream(serviceAccount))
                     .build();
 
+            // Verifica se o FirebaseApp já foi inicializado
             if (FirebaseApp.getApps().isEmpty()) {
                 FirebaseApp.initializeApp(options);
             }

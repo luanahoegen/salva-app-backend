@@ -14,6 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
+//Indica que é um controlador REST.
 @RestController
 @RequestMapping("/api/users")
 @CrossOrigin("*")

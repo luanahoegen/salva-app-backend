@@ -46,6 +46,7 @@ public class FirebaseService {
         // Criptografa a senha antes de salvar
         user.setPassword(passwordEncoder.encode(user.getPassword()));
 
+        //Salva o objeto no Cloud Firestore, usa modelo do SDK para salvar
         ApiFuture<WriteResult> collectionsApiFuture = dbFirestore.collection("users").document().set(user);
         return collectionsApiFuture.get().getUpdateTime().toString();
     }
