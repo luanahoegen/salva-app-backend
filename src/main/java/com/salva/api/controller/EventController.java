@@ -23,7 +23,7 @@ public class EventController {
             String result = eventService.save(event);
             return new ResponseEntity<>(result, HttpStatus.CREATED);
         } catch (Exception e) {
-            e.printStackTrace(); // Isso VAI mostrar o erro no terminal do PC agora!
+            e.printStackTrace();
             return new ResponseEntity<>("Erro no servidor: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
